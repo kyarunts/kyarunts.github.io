@@ -62,6 +62,8 @@ const persons = [
 ];
 
 const messages = {
+    'header-image-url': 'https://res.cloudinary.com/dgjy6axdi/image/upload/v1560960455/Untitled-1_t0mdsw.jpg',
+    'contact-icon-url': 'https://res.cloudinary.com/dgjy6axdi/image/upload/v1560966773/icon_jg77hi.jpg',
     'customer-name': 'Հարգելի գործընկեր',
     'welcome-message': 'Բարի գալուստ Դալմա Գարդեն Մոլ:',
     'congrats': 'Շնորհավորում ենք Ձեր խանութ-սրահի բացման կապակցությամբ: <br> Հուսով ենք մեր համագործակցությունը կլինի երկար և արդյունավետ:',
@@ -69,6 +71,25 @@ const messages = {
     'footer-message-top': 'Պատրաստ ենք սիրով աշխատել Ձեզ հետ և Ձեզ համար:',
     'footer-message-bottom': 'Հարգանքով` Դալմա թիմ',
 };
+
+function toggleHeader() {
+    const toggle = document.getElementById('includeHeader');
+    const headerContainer = document.getElementById('headerContainer');
+    if (!toggle.checked) {
+        headerContainer.innerHTML = '';
+    } else {
+        headerContainer.appendChild(generateHeaderImage());
+    }
+}
+
+function generateHeaderImage() {
+    const image = document.createElement('img');
+    image.setAttribute('style', 'width: 80%');
+    image.setAttribute('align', 'center');
+    const imageSrc = document.getElementById('header-image-url').value;
+    image.setAttribute('src', imageSrc);
+    return image;
+}
 
 function generateMessages() {
     Object.keys(messages).forEach(key => {
@@ -250,7 +271,7 @@ function generatePersonIconContainer() {
 
 function generatePersonIcon() {
     const icon = document.createElement('img');
-    icon.setAttribute('src', 'https://res.cloudinary.com/dgjy6axdi/image/upload/v1560966773/icon_jg77hi.jpg');
+    icon.setAttribute('src', document.getElementById('contact-icon-url').value);
     icon.setAttribute('style', 'width: 100%; height:auto');
     return icon;
 }

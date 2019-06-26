@@ -12,8 +12,11 @@
     <div class="d">
         <div class="d__inner-container">
             <h1>Dalma email generator</h1>
+            <div class="d__checkbox-container">
+                <input onchange="toggleHeader()" id="includeHeader" type="checkbox" checked>
+                <label for="includeHeader">With header</label>
+            </div>
             <div id="messages" class="d__messages">
-
             </div>
             <div class="d__actions">
                 <button onclick="addPerson()" class="d__button">
@@ -65,7 +68,7 @@
                             <table class="container-table" cellpadding="0" cellspacing="0" width="80%" style="text-align:center;max-width:600px;background-color:#ffffff;">
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td id="headerContainer">
                                             <img align="center" style="width: 80%" src="https://res.cloudinary.com/dgjy6axdi/image/upload/v1560960455/Untitled-1_t0mdsw.jpg"
                                                 alt="">
                                         </td>
